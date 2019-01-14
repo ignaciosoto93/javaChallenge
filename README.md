@@ -19,3 +19,6 @@ Solo deben levantar la app y acceder a localhost:8081/demo (get/post), localhost
 Así mismo se dejo configurado <a href="https://swagger.io/"><b>Swagger</b></a> para que en http://localhost:8081/swagger-ui.html tengan documentado los endpoints y puedan usar swagger para probar la api.
 
 Tambien se encuentra el actuator de spring configurado y bajo http://localhost:8081/actuator van a encontrar la documentacion de los endpoints que tienen disponibles.
+
+
+<b>NOTA: Es necesario tener version 3.5.2 de maven</b> ya que sino tira un error al querer correr el goal unpack del jar cuando esta creando y buildeando la imagen de docker.
