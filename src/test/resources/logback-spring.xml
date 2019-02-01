@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="logging.level.org.hibernate.SQL" level="DEBUG"/>
+
+    <springProfile name="local">
+        <!-- El perfil "development" define una salida por terminal llamada "CONSOLE" -->
+
+        <!-- Todos los mensajes ser&aacute;n enviados a la salida llamada "CONSOLE".
+        El filtro por defecto establece un nivel mínimo de "DEBUG". -->
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+
+</configuration>

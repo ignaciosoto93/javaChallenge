@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <logger name="org.springframework.web" level="INFO"/>
+    <logger name="logging.level.org.hibernate.SQL" level="DEBUG"/>
+
+    <appender name="le" class="com.logentries.logback.LogentriesAppender">
+        <param name="Token" value="82248ccf-bfc6-49ac-8ff4-f5754cae16db"/>
+        <param name="Ssl" value="false"/>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d %c{2}:%L [%t] [%X{uow}] %-5p- %m%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d %c{2}:%L [%t] [%X{uow}] %-5p- %m%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <springProfile name="local">
+        <!-- El perfil "development" define una salida por terminal llamada "CONSOLE" -->
+
+        <!-- Todos los mensajes ser&aacute;n enviados a la salida llamada "CONSOLE".
+        El filtro por defecto establece un nivel mínimo de "DEBUG". -->
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="test,stage">
+
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>/mnt/iguanafix/log/DEMO.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <!-- daily rollover -->
+                <fileNamePattern>/mnt/iguanafix/log/DEMO.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+                <!-- keep 30 days' worth of history capped at 3GB total size -->
+                <maxHistory>7</maxHistory>
+                <totalSizeCap>3GB</totalSizeCap>
+
+            </rollingPolicy>
+
+            <encoder>
+                <pattern>%d %c{2}:%L [%t] [%X{uow}] %-5p- %m%n</pattern>
+            </encoder>
+        </appender>
+
+        <!-- Todos los mensajes se enviar&aacute;n a la salida llamada "FILE".
+        El filtro por defecto establece un nivel mínimo de "INFO". -->
+        <root level="INFO">
+            <appender-ref ref="FILE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="prod">
+
+        <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>/mnt/iguanafix/log/DEMO.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <!-- daily rollover -->
+                <fileNamePattern>/mnt/iguanafix/log/DEMO.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+                <!-- keep 30 days' worth of history capped at 3GB total size -->
+                <maxHistory>7</maxHistory>
+                <totalSizeCap>3GB</totalSizeCap>
+
+            </rollingPolicy>
+
+            <encoder>
+                <pattern>%d %c{2}:%L [%t] [%X{uow}] %-5p- %m%n</pattern>
+            </encoder>
+        </appender>
+
+        <!-- Todos los mensajes se enviar&aacute;n a la salida llamada "FILE".
+        El filtro por defecto establece un nivel mínimo de "INFO". -->
+        <root level="INFO">
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="le"/>
+        </root>
+    </springProfile>
+
+</configuration>
