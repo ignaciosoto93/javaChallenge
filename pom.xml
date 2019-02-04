@@ -26,7 +26,7 @@
         <java.version>1.8</java.version>
         <commons-lang.version>2.6</commons-lang.version>
         <commons-io.version>2.6</commons-io.version>
-        <logentries-appender.version>1.1.37</logentries-appender.version>
+        <logentries-appender.version>1.1.38</logentries-appender.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
         <liquibase-core.version>3.5.5</liquibase-core.version>
         <liquibase-maven-plugin.version>3.5.5</liquibase-maven-plugin.version>
@@ -34,6 +34,7 @@
         <nexus-repo-host>10.0.0.7:8080</nexus-repo-host>
         <hibernate.version>5.2.12.Final</hibernate.version>
         <common-ifix-version>1.15</common-ifix-version>
+        <newrelic.version>4.10.0</newrelic.version>
         <sonar.coverage.exclusions>
             **/com/marb/framework/api/dto/**/*,
             **/com/marb/framework/api/filter/MdfFilter.java
@@ -109,6 +110,18 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>com.newrelic.agent.java</groupId>
+            <artifactId>newrelic-api</artifactId>
+            <version>${newrelic.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.newrelic.agent.java</groupId>
+            <artifactId>newrelic-agent</artifactId>
+            <version>${newrelic.version}</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-aws</artifactId>
