@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = { "com.marb.demo.module.demo" })
+@EnableJpaRepositories(basePackages = { "com.marb.demo.module.demo", "com.marb.demo.module.delayed" })
 public class DemoDatabaseConfiguration {
 
 	@Primary
@@ -31,7 +31,7 @@ public class DemoDatabaseConfiguration {
 	@Bean(name = "entityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder,
 			@Qualifier("dataSource") DataSource dataSource) {
-		return builder.dataSource(dataSource).packages("com.marb.demo.module.demo.domain.model").persistenceUnit("demo")
+		return builder.dataSource(dataSource).packages("com.marb.demo.module.demo.domain.model", "com.marb.demo.module.delayed.domain.model").persistenceUnit("demo")
 				.build();
 	}
 

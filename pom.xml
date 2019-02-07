@@ -111,6 +111,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-quartz</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.newrelic.agent.java</groupId>
             <artifactId>newrelic-api</artifactId>
             <version>${newrelic.version}</version>

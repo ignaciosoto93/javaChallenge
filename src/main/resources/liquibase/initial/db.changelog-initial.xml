@@ -3,6 +3,68 @@
                    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
+    <changeSet id="iguanafix_initial_00" author="iguanafix">
+        <sqlFile encoding="utf8" path="sql/quartz-mysql-innodb.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet author="iguanafix" id="iguanafix_initial_01">
+        <createTable tableName="delayed_call">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="created_on" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="system_code" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="operation_code" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="entity_id" type="INT"/>
+            <column name="entity_type" type="VARCHAR(24)"/>
+            <column name="retries" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payload" type="TEXT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="iguanafix" id="iguanafix_initial_02">
+        <createTable tableName="delayed_call_log">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="delayed_call_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_on" type="datetime(6)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="status" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(1024)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="iguanafix" id="iguanafix_initial_03">
+        <createIndex indexName="idx_dc_codes" tableName="delayed_call">
+            <column name="system_code"/>
+            <column name="operation_code"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="iguanafix" id="iguanafix_initial_04">
+        <createIndex indexName="idx_dc_status" tableName="delayed_call">
+            <column name="status"/>
+        </createIndex>
+    </changeSet>
+
     <changeSet author="demo" id="demo">
         <createTable tableName="demo_demo">
             <column autoIncrement="true" name="id" type="BIGINT">

@@ -17,9 +17,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
 @Component
 public class MdcFilter extends OncePerRequestFilter {
 
-	private static final String UOW = "uow";
-	private static final String UOW_OVERRIDE = "uow-override";
-	private static final String X_FORWARDED_FOR_HEADER = "X-Forwarded-For";
+	public static final String UOW = "uow";
+	public static final String UOW_OVERRIDE = "uow-override";
+	public static final String X_FORWARDED_FOR_HEADER = "X-Forwarded-For";
 
 	@Value("${app.server.name:N/A}")
 	private String serverName;
