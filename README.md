@@ -30,5 +30,5 @@ Tambien se encuentra el actuator de spring configurado y bajo http://localhost:8
        - git push --mirror https://github.com/IguanaFix/new-repository.git  </br>
        - cd ..  </br>
        - rm -rf old-repository.git  </br>
-
+</br>
 Mas info en: <a href="https://help.github.com/articles/duplicating-a-repository">https://help.github.com/articles/duplicating-a-repository</a>
