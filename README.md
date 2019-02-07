@@ -24,11 +24,11 @@ Tambien se encuentra el actuator de spring configurado y bajo http://localhost:8
 <b>NOTA: Es necesario tener version 3.5.2 de maven</b> ya que sino tira un error al querer correr el goal unpack del jar cuando esta creando y buildeando la imagen de docker.
 
 
-<b>Para copiar el codigo en otro repositorio</b> se debe hacer lo siguiente:
-       - git clone --bare https://github.com/IguanaFix/old-repository.git
-       - cd old-repository.git
-       - git push --mirror https://github.com/IguanaFix/new-repository.git
-       - cd ..
-       - rm -rf old-repository.git
+<b>Para copiar el codigo en otro repositorio</b> se debe hacer lo siguiente:    </br>
+       - git clone --bare https://github.com/IguanaFix/old-repository.git   </br>
+       - cd old-repository.git  </br>
+       - git push --mirror https://github.com/IguanaFix/new-repository.git  </br>
+       - cd ..  </br>
+       - rm -rf old-repository.git  </br>
 
 Mas info en: <a href="https://help.github.com/articles/duplicating-a-repository">https://help.github.com/articles/duplicating-a-repository</a>
