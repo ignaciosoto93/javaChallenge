@@ -29,6 +29,7 @@ public class DelayedCall {
 	private String operationCode;
 	@Column(name = "payload")
 	private String payload;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "entity_type")
 	private EntityType mainEntityType;
 	@Column(name = "entity_id")

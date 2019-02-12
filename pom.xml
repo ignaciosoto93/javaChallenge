@@ -28,11 +28,11 @@
         <commons-io.version>2.6</commons-io.version>
         <logentries-appender.version>1.1.38</logentries-appender.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
-        <liquibase-core.version>3.5.5</liquibase-core.version>
-        <liquibase-maven-plugin.version>3.5.5</liquibase-maven-plugin.version>
-        <liquibase-hibernate.version>3.5</liquibase-hibernate.version>
+        <liquibase-core.version>3.6.3</liquibase-core.version>
+        <liquibase-maven-plugin.version>3.6.3</liquibase-maven-plugin.version>
+        <liquibase-hibernate.version>3.6</liquibase-hibernate.version>
         <nexus-repo-host>10.0.0.7:8080</nexus-repo-host>
-        <hibernate.version>5.2.12.Final</hibernate.version>
+        <hibernate.version>5.4.1.Final</hibernate.version>
         <common-ifix-version>1.15</common-ifix-version>
         <newrelic.version>4.10.0</newrelic.version>
         <sonar.coverage.exclusions>
@@ -162,6 +162,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -224,9 +230,16 @@
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>RELEASE</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.3.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.3.2</version>
             <scope>test</scope>
         </dependency>
 

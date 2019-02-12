@@ -74,4 +74,13 @@
         </createTable>
     </changeSet>
 
+    <changeSet author="iguanafix" id="job">
+        <createTable tableName="job">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>
