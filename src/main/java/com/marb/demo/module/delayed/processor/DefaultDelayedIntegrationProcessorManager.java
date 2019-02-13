@@ -66,7 +66,9 @@ public class DefaultDelayedIntegrationProcessorManager implements DelayedIntegra
 		} catch (Exception e) {
 			log.error("unexpected exception throw by processor " + call, e);
 			Map<String, String> params = new HashMap<>();
-			params.put("DelayCallId", String.valueOf(call.getId()));
+			params.put("delayCallId", String.valueOf(call.getId()));
+			params.put("entityId", String.valueOf(call.getMainEntityId()));
+			params.put("entityType", call.getMainEntityType().name());
 			NewRelic.noticeError(e, params);
 			response = new DelayedCallResponseDto(DelayedCallResponseDto.ResponseStatus.RETRY,
 					ofNullable(e.getMessage()).orElse(e.getClass().getCanonicalName()));
