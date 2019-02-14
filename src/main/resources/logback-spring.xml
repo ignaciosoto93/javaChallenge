@@ -35,10 +35,10 @@
     <springProfile name="test,stage">
 
         <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <file>/mnt/iguanafix/log/DEMO.log</file>
+            <file>/home/applications/demo/logs/demo.log</file>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
                 <!-- daily rollover -->
-                <fileNamePattern>/mnt/iguanafix/log/DEMO.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <fileNamePattern>/home/applications/demo/logs/demo.%d{yyyy-MM-dd}.log</fileNamePattern>
 
                 <!-- keep 30 days' worth of history capped at 3GB total size -->
                 <maxHistory>7</maxHistory>
@@ -61,10 +61,10 @@
     <springProfile name="prod">
 
         <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <file>/mnt/iguanafix/log/DEMO.log</file>
+            <file>/home/applications/demo/logs/demo.log</file>
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
                 <!-- daily rollover -->
-                <fileNamePattern>/mnt/iguanafix/log/DEMO.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <fileNamePattern>/home/applications/demo/logs/demo.%d{yyyy-MM-dd}.log</fileNamePattern>
 
                 <!-- keep 30 days' worth of history capped at 3GB total size -->
                 <maxHistory>7</maxHistory>
