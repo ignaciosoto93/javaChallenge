@@ -1,5 +1,7 @@
 package com.marb.demo.module.delayed.domain.api.dto;
 
+import com.marb.demo.module.delayed.processor.DelayedIntegrationProcessor;
+
 /**
  * A generic response from calling a {@link DelayedIntegrationProcessor}
  *
@@ -14,6 +16,15 @@ public class DelayedCallResponseDto {
 		super();
 		this.status = status;
 		this.message = message;
+	}
+
+	private DelayedCallResponseDto(Builder builder) {
+		status = builder.status;
+		message = builder.message;
+	}
+
+	public static Builder builder() {
+		return new Builder();
 	}
 
 	@Override
@@ -69,4 +80,25 @@ public class DelayedCallResponseDto {
 		return true;
 	}
 
+	public static final class Builder {
+		private ResponseStatus status;
+		private String message;
+
+		private Builder() {
+		}
+
+		public Builder withStatus(ResponseStatus status) {
+			this.status = status;
+			return this;
+		}
+
+		public Builder withMessage(String message) {
+			this.message = message;
+			return this;
+		}
+
+		public DelayedCallResponseDto build() {
+			return new DelayedCallResponseDto(this);
+		}
+	}
 }
