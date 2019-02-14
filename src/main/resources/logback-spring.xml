@@ -55,6 +55,7 @@
         El filtro por defecto establece un nivel mínimo de "INFO". -->
         <root level="INFO">
             <appender-ref ref="FILE"/>
+            <appender-ref ref="CONSOLE"/>
         </root>
     </springProfile>
 
