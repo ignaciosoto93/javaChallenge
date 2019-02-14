@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import com.marb.demo.module.delayed.domain.job.DelayedCallJob;
 
 @Configuration
-public class SchedulerConfig {
+public class SchedulerConfiguration {
 
 	@Value("${quartz.scheduler.delayed-call-processor.interval-in-seconds}")
 	private Integer delayedCallIntervalInSeconds;

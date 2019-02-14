@@ -23,10 +23,12 @@ public class DelayedCall {
 	private Date createdOn;
 	@Column(name = "retries")
 	private Integer retries = 0;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "system_code")
-	private String systemCode;
+	private DelayCallSystemCode systemCode;
+	@Enumerated(EnumType.STRING)
 	@Column(name = "operation_code")
-	private String operationCode;
+	private DelayCallOperationCode operationCode;
 	@Column(name = "payload")
 	private String payload;
 	@Enumerated(EnumType.STRING)
@@ -57,11 +59,11 @@ public class DelayedCall {
 		return retries;
 	}
 
-	public String getSystemCode() {
+	public DelayCallSystemCode getSystemCode() {
 		return systemCode;
 	}
 
-	public String getOperationCode() {
+	public DelayCallOperationCode getOperationCode() {
 		return operationCode;
 	}
 
@@ -103,8 +105,8 @@ public class DelayedCall {
 		private DelayedCallStatus status;
 		private Date createdOn;
 		private Integer retries = 0;
-		private String systemCode;
-		private String operationCode;
+		private DelayCallSystemCode systemCode;
+		private DelayCallOperationCode operationCode;
 		private String payload;
 		private EntityType mainEntityType;
 		private Long mainEntityId;
@@ -133,12 +135,12 @@ public class DelayedCall {
 			return this;
 		}
 
-		public Builder withSystemCode(String systemCode) {
+		public Builder withSystemCode(DelayCallSystemCode systemCode) {
 			this.systemCode = systemCode;
 			return this;
 		}
 
-		public Builder withOperationCode(String operationCode) {
+		public Builder withOperationCode(DelayCallOperationCode operationCode) {
 			this.operationCode = operationCode;
 			return this;
 		}

@@ -1,19 +1,21 @@
 package com.marb.demo.module.delayed.domain.api.dto;
 
+import com.marb.demo.module.delayed.domain.model.DelayCallOperationCode;
+import com.marb.demo.module.delayed.domain.model.DelayCallSystemCode;
 import com.marb.demo.module.delayed.domain.model.EntityType;
 
 public class DelayedCallRequestDto {
-	private String systemCode;
-	private String operationCode;
+	private DelayCallSystemCode systemCode;
+	private DelayCallOperationCode operationCode;
 	private String payload;
 	private EntityType mainEntityType;
 	private long mainEntityId;
 
-	public String getSystemCode() {
+	public DelayCallSystemCode getSystemCode() {
 		return systemCode;
 	}
 
-	public String getOperationCode() {
+	public DelayCallOperationCode getOperationCode() {
 		return operationCode;
 	}
 
@@ -42,8 +44,8 @@ public class DelayedCallRequestDto {
 	}
 
 	public static final class Builder {
-		private String systemCode;
-		private String operationCode;
+		private DelayCallSystemCode systemCode;
+		private DelayCallOperationCode operationCode;
 		private String payload;
 		private EntityType mainEntityType;
 		private long mainEntityId;
@@ -51,12 +53,12 @@ public class DelayedCallRequestDto {
 		private Builder() {
 		}
 
-		public Builder withSystemCode(String systemCode) {
+		public Builder withSystemCode(DelayCallSystemCode systemCode) {
 			this.systemCode = systemCode;
 			return this;
 		}
 
-		public Builder withOperationCode(String operationCode) {
+		public Builder withOperationCode(DelayCallOperationCode operationCode) {
 			this.operationCode = operationCode;
 			return this;
 		}
