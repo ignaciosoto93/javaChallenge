@@ -7,7 +7,6 @@ import org.apache.commons.logging.LogFactory;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.marb.demo.module.delayed.domain.api.dto.DelayedCallResponseDto;
 import com.marb.demo.module.delayed.domain.model.DelayedCall;
